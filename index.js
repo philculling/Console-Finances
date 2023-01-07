@@ -1,21 +1,3 @@
-/*work out total number of months. Print to console to 
-test it.
-*/
-/*Work out net total of profit / loss. Again
-print to console to test it.
-*/
-/*Work out how to work out changes in profit from month to month,
-then total changes in profit,
-then average changes in profit, then print to console. This sounds hard!
-*/
-/*Work out greatest increase in profit.
-Print to console.
-*/
-/* Work out greatest decrease in loss.
-Print to console.
-*/
-/*Work out how to print everything to website instead of console!
-*/
 var finances = [
 ['Jan-2010', 867884],
 ['Feb-2010', 984655],
@@ -104,3 +86,32 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+/*work out total number of months. Print to console to 
+test it. Yay, it worked.
+*/
+console.log(finances.length);
+
+/*Work out net total of profit / loss. Again
+print to console.
+*/
+
+var netprofit = 0
+
+for (var i = 0; i < finances.length; i++) {
+    netprofit = netprofit + finances [i][1];
+}
+    console.log (netprofit)
+    
+/*Work out how to work out changes in profit from month to month,
+then total changes in profit,
+then average changes in profit, then print to console. This sounds hard!
+*/
+/*Work out greatest increase in profit, as in which month has the highest value?
+Print to console.
+*/
+/* Work out greatest decrease in loss, as in which month has the highest negative value?
+Print to console.
+*/
+/*Work out how to print everything to the console in the way intended!
+*/
