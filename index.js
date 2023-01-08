@@ -98,7 +98,7 @@ var netprofit = 0
 for (var i = 0; i < finances.length; i++) {
     netprofit = netprofit + finances [i][1];
 }
-    console.log (netprofit)
+console.log (netprofit)
 
 /*1. Work out how to work out changes in profit from month to month
 a) change in profit from month 1 to 2,*/
@@ -108,10 +108,19 @@ console.log (finances [0][1] - finances [1][1]); //This worked.
 
 var totalDifferences = 0
 
+/*
+if finances [i][1] > finances [i++][1] {
+    finances [i][1] - finances [i++][1]
+}
+else {
+    finances [i++][1] - finances [i][1]
+}
+*/
+
 for (var i = 0; i < finances.length; i++) {
     totalDifferences = totalDifferences + finances [i][1] - finances [i++][1];
 }
-    console.log (totalDifferences);
+console.log (totalDifferences);
 
 /*b) what if larger number is second? Does this matter for the question?
 Check README. I think it will.
