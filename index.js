@@ -117,8 +117,8 @@ else {
 }
 */
 
-for (var i = 0; i < finances.length; i++) {
-    totalDifferences = totalDifferences + finances [i][1] - finances [i++][1];
+for (var i = 0; i < finances.length - 1; i++) {
+    totalDifferences = totalDifferences + finances [i][1] - finances [i+1][1];
 }
 console.log (totalDifferences);
 
