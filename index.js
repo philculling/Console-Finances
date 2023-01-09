@@ -100,57 +100,20 @@ for (var i = 0; i < finances.length; i++) {
 }
 console.log (netprofit)
 
-/*1. Work out how to work out changes in profit from month to month
-a) change in profit from month 1 to 2,*/
-
-//month 2 minus month 1...
-console.log (finances [0][1] - finances [1][1]); //This worked.
+/*Work out how to work out changes in profit from month to month*/
 
 var totalDifferences = 0
 
-/*
-if finances [i][1] > finances [i++][1] {
-    finances [i][1] - finances [i++][1]
-}
-else {
-    finances [i++][1] - finances [i][1]
-}
-*/
-
 for (var i = 0; i < finances.length - 1; i++) {
-    totalDifferences = totalDifferences + finances [i][1] - finances [i+1][1];
+ 
+    totalDifferences = totalDifferences + Math.abs (finances [i][1] - finances [i+1][1]);
 }
-console.log (totalDifferences);
+//console.log (totalDifferences); was used to check
 
-/*b) what if larger number is second? Does this matter for the question?
-Check README. I think it will.
-Try the get differences from Stack. See if you can make it work.
-See if it still works if the larger / smaller are the 'wrong' way round. It does.
-Can we put the real data in and it still works? Yes.
-Even if the smaller number is first? Yes.
-This below was what I used.
+/*Work out how to display average changes in profit, 
+then print to console.
 */
-
-function difference(a, b) {
-    return Math.abs(a - b);
-}
-function getDifferences(arr) {
-    return arr.map(el => difference(...Object.values(el)));
-}
-console.log(getDifferences([[finances [0][1],finances [1][1]]]));
-/*
-2. total changes in profit using a for loop.
-The above works in the sense that the result is always positive.
-Create a for loop for about 3 or 4 items, enough for you to check the Maths.
-Edit the for loop to iterate across the whole dataset.
-*/
-
-/*
-3. Work out how to display average changes in profit, 
-then print to console and get rid of any printing to console 
-that should not be there. This sounds hard!
-*/
-console.log (totalDifferences/*which will be correct!*/ / finances.length);
+console.log (totalDifferences / finances.length);
 
 /*4. Work out greatest increase in profit, 
 as in which month has the highest value? Check Math.max
@@ -183,6 +146,7 @@ function findMaxFromNestedArray(finances) {
 as in which month has the highest negative value? Check Math.min
 Print to console.
 */
+
 
 /*6.Work out how to print everything to the console in the way intended!
 */
