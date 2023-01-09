@@ -89,7 +89,9 @@ var finances = [
 
 /*work out total number of months. Print to console.
 */
-console.log(finances.length);
+console.log("Financial analysis")
+console.log("------------")
+console.log("Total months: " + finances.length);
 
 /*Work out net total of profit / loss. Print to console.
 */
@@ -98,7 +100,7 @@ var netprofit = 0
 for (var i = 0; i < finances.length; i++) {
     netprofit = netprofit + finances [i][1];
 }
-console.log (netprofit)
+console.log ("Total: $"+netprofit)
 
 /*Work out how to work out changes in profit from month to month*/
 
@@ -113,37 +115,20 @@ for (var i = 0; i < finances.length - 1; i++) {
 /*Work out how to display average changes in profit, 
 then print to console.
 */
-console.log (totalDifferences / finances.length);
+var averageChange = (totalDifferences / finances.length).toFixed(2)
+//console.log (averageChange)
+console.log ("Average Change: $"+ (totalDifferences / finances.length).toFixed(2));
 
 /*4. Work out greatest increase in profit, 
-as in which month has the highest value? Check Math.max
+as in which change from one month to the next has the highest value?
+Check Math.max
 Print to console.
 */
 /*Solution from stack overflow
 */
-function findMaxFromNestedArray(finances) {
-    let max = Number.MIN_SAFE_INTEGER;
-    
-    for (let item of finances) {
-      if(Array.isArray(item)) {
-        let maxInChildArray = findMaxFromNestedArray(item);
-        if (maxInChildArray > max) {
-          max = maxInChildArray;
-        }
-      } else {
-        if (item > max) {
-          max = item;
-        }
-      }
-    }
-    
-    return max;
-  }
-  
-  console.log(findMaxFromNestedArray(finances))
 
 /*5.Work out greatest decrease in loss, 
-as in which month has the highest negative value? Check Math.min
+as in which change from one month to the next has the highest negative value? Check Math.min
 Print to console.
 */
 
