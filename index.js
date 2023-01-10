@@ -1,11 +1,11 @@
 var finances = [
 ['Jan-2010', 867884],
-['Feb-2010', 984655],
-['Mar-2010', 322013],
-['Apr-2010', -69417],
-['May-2010', 310503],
-['Jun-2010', 522857],
-['Jul-2010', 1033096],
+['Feb-2010', 984655],//+116771
+['Mar-2010', 322013],//-662642
+['Apr-2010', -69417],//-391340
+['May-2010', 310503],//+379920
+['Jun-2010', 522857],//+212354
+['Jul-2010', 1033096],//The above were for testing for smaller iterations
 ['Aug-2010', 604885],
 ['Sep-2010', -216386],
 ['Oct-2010', 477532],
@@ -110,28 +110,39 @@ for (var i = 0; i < finances.length - 1; i++) {
  
     totalDifferences = totalDifferences + Math.abs (finances [i][1] - finances [i+1][1]);
 }
-//console.log (totalDifferences); was used to check
-
 /*Work out how to display average changes in profit, 
 then print to console.
 */
 var averageChange = (totalDifferences / finances.length).toFixed(2)
 //console.log (averageChange)
 console.log ("Average Change: $"+ (totalDifferences / finances.length).toFixed(2));
-
-/*4. Work out greatest increase in profit, 
+/*Work out greatest increase in profit, 
 as in which change from one month to the next has the highest value?
-Check Math.max
 Print to console.
 */
-/*Solution from stack overflow
-*/
-
-/*5.Work out greatest decrease in loss, 
-as in which change from one month to the next has the highest negative value? Check Math.min
+/*Work out greatest decrease in loss, 
+as in which change from one month to the next has the highest negative value?
 Print to console.
 */
 
+var firstIncrease = finances [1][1] - finances [0][1];
+var maxProfit = ["", firstIncrease];
+var maxLoss = ["", firstIncrease];
+var totalChange = 0;
+    for (var i = 1; i < finances.length; i++) {
+        var currentProfit = finances [i][1];
+        var priorProfit = finances[i-1][1];
+        var currentIncrease = currentProfit - priorProfit;
+        totalChange += currentIncrease;
+        if (currentIncrease > maxProfit[1]) {
+             maxProfit = [finances[i][0], currentIncrease];
+        } else if (currentIncrease < maxLoss[1]) {
+            maxLoss = [finances[i][0], currentIncrease];
+        }
+    }
+    console.log(maxProfit);
+    console.log(maxLoss);
 
-/*6.Work out how to print everything to the console in the way intended!
+/*6.Print everything to the console in the way intended!
+Do README.
 */
