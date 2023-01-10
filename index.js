@@ -137,9 +137,5 @@ var maxLoss = ["", 0];
             maxLoss = [finances[i][0], currentIncrease];
         }
     }
-    console.log(maxProfit);
-    console.log(maxLoss);
-
-/*6.Print everything to the console in the way intended!
-Do README.
-*/
+    console.log("Greatest increase in profits: " + maxProfit);
+    console.log("Greatest decrease in profits: " + maxLoss);
