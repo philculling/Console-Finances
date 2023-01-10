@@ -125,15 +125,12 @@ as in which change from one month to the next has the highest negative value?
 Print to console.
 */
 
-var firstIncrease = finances [1][1] - finances [0][1];
-var maxProfit = ["", firstIncrease];
-var maxLoss = ["", firstIncrease];
-var totalChange = 0;
+var maxProfit = ["", 0];
+var maxLoss = ["", 0];
     for (var i = 1; i < finances.length; i++) {
         var currentProfit = finances [i][1];
         var priorProfit = finances[i-1][1];
         var currentIncrease = currentProfit - priorProfit;
-        totalChange += currentIncrease;
         if (currentIncrease > maxProfit[1]) {
              maxProfit = [finances[i][0], currentIncrease];
         } else if (currentIncrease < maxLoss[1]) {
